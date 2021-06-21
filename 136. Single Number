@@ -1,0 +1,23 @@
+class Solution(object):
+    def singleNumber(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        if len(nums) == 1:
+            return nums[0]
+        
+        ans = 0
+        dct = {}
+        
+        for i in set(nums):
+                dct[i] = 0
+        
+        for i in nums:
+            if i not in dct: 
+                dct[i] = 0 
+            dct[i] += 1
+                 
+        for k in dct.keys():
+            if dct[k] == 1:
+                return k
